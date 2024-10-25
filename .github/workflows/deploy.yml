@@ -1,0 +1,35 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  
+  AWS_REGION : "us-east-2"
+
+permissions:
+      id-token: write
+      contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1.7.0
+        with:
+          role-to-assume: ${{ secrets.ACTIONS_ARN }}
+          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Install modules
+        run: npm ci
+      - name: Build application
+        run: npm run build
+      - name: Deploy to S3
+        run: aws s3 sync --delete ./dist/ s3://${{ secrets.BUCKET_ID }}
+      - name: Create CloudFront invalidation
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
