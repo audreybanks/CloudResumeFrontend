@@ -1,0 +1,51 @@
+---
+import {
+    ResumeSection,
+    ResumeName,
+    ResumeLinks,
+    ResumePoints
+} from '@/components/Resume';
+import Layout from '../../layouts/Layout.astro';
+import "../../styles/global.css"
+---
+
+<Layout title="Audrey Banks Portfolio">
+	<main class="h-screen flex flex-col font-serif" data-theme="light">
+        <div>
+            <ResumeName>Audrey Banks</ResumeName>
+            <ResumeLinks>
+                <a href="mailto:audreybanks2@gmail.com">audreybanks2@gmail.com</a>
+                <a href="http://github.com/audreybanks/">github.com/audreybanks/</a>
+            </ResumeLinks>
+        </div>
+        <ResumeSection 
+            title='WORK EXPERIENCE'
+            company='Department of Defense'
+            date='Jul 2022 - Present'
+            position='Software Developer'
+            location='Warner Robins, GA'
+        >
+            <ResumePoints>
+                <li>
+                    Led a team of 4 developers in analyzing customer needs and product requirements to plan and design 3 new Keyhole Markup Language (KML) software features in order to significantly broaden image processing capabilities and manipulation options for users.
+                </li>
+                <li>
+                    Improved the overall user experience of the Single Page Application by eliminating the amount of clicks with streamlined and improved access to KML map image manipulation by designing a React JS component to display KML nodes in an expanding checkbox structure.
+                </li>
+                <li>
+                    Expanded the NodeJS KML processing service to be able to process new KML features, greatly expanding the types and style of shapes the user can upload.
+                </li>
+                <li>
+                    Utilized Gitlab container registries for storing and deploying Docker cluster Kubernete containers.
+                </li>
+                <li>
+                    Added over 30 new icons and colors for custom map items by modifying the software's Java based Spring Boot and MongoDB backend structure, greatly expanding the customer's options for customization and flexibility.
+                </li>
+                <li>
+                    Identified and solved a problem with AngularJS widgets unexpectedly expanding despite being minimized on page refresh, contributing to smoother and more predictable interactions and increasing overall user satisfaction.
+                </li>
+            </ResumePoints>
+        </ResumeSection>
+        
+	</main>
+</Layout>
