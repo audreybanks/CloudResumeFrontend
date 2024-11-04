@@ -1,12 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import "../styles/global.css"
-import { Button } from "../components/ui/button"
+import { Button } from '@/components/ui/button';
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<Button>Hello World</Button>
+<Layout title="Audrey Banks Portfolio">
+	<main class="h-screen flex flex-col">
+		<p class="m-2">Visitors: </p>
+		<p class="text-5xl text-center">Audrey Banks</p>
+		<div class="flex justify-center mt-6">
+			<a class="btn btn-primary" href="portfolio/resume">Resume</a>
+		</div>
 	</main>
 </Layout>
